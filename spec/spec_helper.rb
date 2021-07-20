@@ -5,7 +5,7 @@ RSpec.configure do |c|
   c.formatter = :documentation
   c.before :each do
     # set to strictest setting for testing
-    # by default Puppet runs at warning level
+    # by default Puppet runs at warning levels
     Puppet.settings[:strict] = :warning
   end
 end
