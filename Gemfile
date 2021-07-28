@@ -1,6 +1,7 @@
 
 source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
+gem 'facter'
 gem 'puppet', "~> 6.12.0"
 gem 'puppet-lint'
 gem 'puppet-syntax'
@@ -9,6 +10,7 @@ gem 'rake'
 gem 'rspec-core'
 gem 'rspec-expectations',                                      require: false
 gem 'rspec-puppet'
+gem 'rspec-puppet-facts'
 gem 'rubocop',                                                 require: false
 gem 'rubocop-rake',                                            require: false
 gem "rubocop-rspec",                                           require: false
