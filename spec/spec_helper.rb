@@ -3,7 +3,7 @@
 RSpec.configure do |c|
   c.mock_with :rspec
   c.formatter = :documentation
-  c.before :each do
+  c.before do
     # set to strictest setting for testing
     # by default Puppet runs at warning levels
     Puppet.settings[:strict] = :warning

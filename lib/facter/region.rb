@@ -7,14 +7,15 @@ require 'facter'
 
 # module Country::Facts returns the counrty code from the hostname.
 module Facts
+  # region reads from an existing fact
   class Region
     def self.add_facts
       Facter.add('region') do
         setcode do
-          if !Facter.value('pp_region').nil?
-            Facter.value('pp_region').upcase
-          else
+          if Facter.value('pp_region').nil?
             Facter.value('region').upcase
+          else
+            Facter.value('pp_region').upcase
           end
         end
       end

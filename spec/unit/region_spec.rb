@@ -7,23 +7,26 @@
 
 require 'facter'
 require 'spec_helper'
-require './lib/facter/country'
+require './lib/facter/region'
 
 describe Facts::Region do
   let(:title) { 'region' }
   let(:node) { 'test2.example.com' }
-  let(:facts) { { 'region' => 'bar'} } # Facts go here, and if no facts are needed, this can be omitted.
+  let(:facts) { { 'region' => 'bar' } } # Facts go here, and if no facts are needed, this can be omitted.
   # before(:each) {
   #  # Clear facter each run
   #  Facter.clear
   # }
+
   context 'region_pp set' do
     let(:facts) do
       {
-        'pp_region' => 'foo',
+        'pp_region' => 'foo'
       }
     end
-    it { pp facts } #??
+
+    it { pp facts } # ??
+
     it {
       expect(subject).to eq('FOO')
     }

@@ -15,7 +15,7 @@ describe 'nginx' do
   it {
     expect(subject).to contain_file('/u01')
       .with(
-      ensure: 'directory',
+        ensure: 'directory'
       )
   }
 
