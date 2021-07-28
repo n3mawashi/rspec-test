@@ -6,7 +6,7 @@
 require 'facter'
 
 # module Country::Facts returns the counrty code from the hostname.
-module Facts
+module Facter
   # region reads from an existing fact
   class Region
     def self.add_facts

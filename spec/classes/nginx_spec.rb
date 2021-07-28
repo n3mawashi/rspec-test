@@ -13,9 +13,11 @@ describe 'Nginx' do
     { 'docroot' => '/u01' }
   end
 
+  it { exepct(catalogue).to compile.with_all_deps }
+
   context 'with package installed' do
     it {
-      expect(:subject).to contain_package('nginx').with(ensure: 'present')
+      expect(catalogue).to contain_package('nginx').with(ensure: 'present')
     }
   end
 

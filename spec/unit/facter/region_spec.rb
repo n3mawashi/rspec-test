@@ -5,36 +5,35 @@
 # * if region is trie true return is as country
 # * if all is false then use hostname to derive country
 
-require 'facter'
+# require 'facter'
 require 'spec_helper'
-require './lib/facter/region'
+# require './lib/facter/region'
 
-describe Facts::Region do
+describe Facter::Region do
+  subject(:region)
+
   let(:title) { 'region' }
   let(:node) { 'test2.example.com' }
   let(:facts) { { 'region' => 'bar' } } # Facts go here, and if no facts are needed, this can be omitted.
-  # before(:each) {
-  #  # Clear facter each run
-  #  Facter.clear
-  # }
 
-  context 'region_pp set' do
+  # before do
+  #   # Clear facter each run
+  #   Facter.clear
+  # end
+
+  context 'when region_pp is set' do
     let(:facts) do
-      {
-        'pp_region' => 'foo'
-      }
+      super().merge({ 'pp_region' => 'foo' })
     end
 
-    it { pp facts } # ??
-
     it {
-      expect(subject).to eq('FOO')
+      expect(region).to eq('FOO')
     }
   end
 
-  context 'region set' do
+  context 'when region_pp is no set' do
     it {
-      expect(Facter.value(:country)).to eq('bar')
+      expect(region).to eq('BAR')
     }
   end
 end
