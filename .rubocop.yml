@@ -60,6 +60,8 @@ Lint/UnmodifiedReduceAccumulator: # (new in 1.1)
   Enabled: true
 Naming/InclusiveLanguage: # (new in 1.18)
   Enabled: true
+Metrics/BlockLength:
+   Max: 50
 Style/ArgumentsForwarding: # (new in 1.1)
   Enabled: true
 Style/CollectionCompact: # (new in 1.2)
@@ -76,6 +78,8 @@ Style/IfWithBooleanLiteralBranches: # (new in 1.9)
   Enabled: true
 Style/InPatternThen: # (new in 1.16)
   Enabled: true
+Style/LambdaCall:
+  EnforcedStyle: braces
 Style/MultilineInPatternThen: # (new in 1.16)
   Enabled: true
 Style/NegatedIfElseCondition: # (new in 1.2)

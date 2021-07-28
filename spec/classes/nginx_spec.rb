@@ -2,7 +2,10 @@
 
 require 'spec_helper'
 
-describe 'nginx' do
+# Metrics/BlockLength:disabled
+describe 'Nginx' do
+  subject(:nginx)
+
   let(:title) { 'nginx' }
   let(:node) { 'test.example.com' }
   let(:facts) { {} } # Facts go here, and if no facts are needed, this can be omitted.
@@ -10,28 +13,33 @@ describe 'nginx' do
     { 'docroot' => '/u01' }
   end
 
-  it { expect(subject).to contain_package('nginx').with_ensure('present') }
+  context 'with package installed' do
+    it {
+      expect(:subject).to contain_package('nginx').with(ensure: 'present')
+    }
+  end
 
-  it {
-    expect(subject).to contain_file('/u01')
-      .with(
-        ensure: 'directory'
-      )
-  }
+  context 'with directory /u01' do
+    it {
+      expect(:subject).to contain_file('/u01').with(ensure: 'directory')
+    }
+  end
 
-  it {
-    expect(subject).to contain_file('/var/www/index.html')
-      .with(
+  context 'with index file' do
+    it {
+      expect(:subject).to contain_file('/var/www/index.html').with(
         ensure: 'file',
         require: 'Package[nginx]'
       )
-  }
+    }
+  end
 
-  it {
-    expect(subject).to contain_service('nginx')
-      .with(
+  context 'with service enabed and running' do
+    it {
+      expect(:subject).to contain_service('nginx').with(
         ensure: 'running',
         enable: true
       )
-  }
+    }
+  end
 end
