@@ -1,6 +1,5 @@
 
-source 'https://rubygems.org'
-
+source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
 gem 'puppet', "~> 6.12.0"
 gem 'puppet-lint'
